@@ -8,7 +8,7 @@ const unlocked = `<h2 id="unlockedScreen">Screen is unlocked</h2>`;
 const left = document.querySelector('#left')
 const middle = document.querySelector('#middle')
 const right = document.querySelector('#right')
-
+localStorage.passcode = JSON.stringify(['Enter'])
 let pressedKeys = []
 
 let timeout;
