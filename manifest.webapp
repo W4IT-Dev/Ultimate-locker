@@ -1,7 +1,7 @@
 {
-  "version": "0.0.2.1",
-  "name": "batterymanager",
-  "description": "manange ur battery",
+  "version": "0.0.1",
+  "name": "phonelocker",
+  "description": "lock your phone",
   "type": "web",
   "launch_path": "/index.html",
   "icons": {
@@ -14,9 +14,9 @@
   },
   "locales": {
     "en-US": {
-      "name": "Battery Manager",
-      "subtitle": "mamange ur battery",
-      "description": "views info, set alarm if level goes above or under level"
+      "name": "Phone Locker",
+      "subtitle": "lock your phone",
+      "description": "lock your phone so nobdy can get in or anything happens by accident."
     }
   },
   "default_locale": "en-US"

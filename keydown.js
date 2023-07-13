@@ -2,8 +2,12 @@ document.addEventListener('keydown', e => {
     console.log(e.key)
     if (document.querySelector('#batterylevel')) {
         pressedKeys.push(e.key)
+        clearTimeout(timeout)
+        timeout = setTimeout(()=>{
+            pressedKeys = [];
+        }, 2000)
 
-        // e.preventDefault();
+        e.preventDefault();
         if (pressedKeys.length == JSON.parse(localStorage.passcode).length) {
             if (checkPasscode(pressedKeys, JSON.parse(localStorage.passcode))) {
                 alert('Screen unlocked')
