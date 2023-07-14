@@ -1,10 +1,17 @@
 body {
     background-color: #272732;
     color: white;
-    width: 240px;
-    height: 296px;
-    /* outline: 2px solid red; */
+    width: 240px; 
+     height: 296px;
+    outline: 2px solid red;
     font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: all .5s;
+}
+
+body.locked, body.locked footer {
+    background-color: black;
 }
 
 .list {
@@ -19,7 +26,6 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 5px;
-    /* outline: 1px solid red; */
     font-size: 18px;
     border-bottom: 1px solid #595965;
 }
@@ -81,6 +87,7 @@ footer {
 #middle {
     width: 90px;
     font-size: 1.2rem;
+    text-align: center;
 }
 
 #right {
@@ -106,6 +113,8 @@ footer {
     justify-content: center;
     height: 296px;
     width: 240px;
+    line-height: 1rem;
+    text-align: center;
 }
 
 #batterylevel {

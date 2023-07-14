@@ -1,3 +1,7 @@
+//DOM
+const content = document.querySelector('#content')
+
+// HTML
 const lockedscreen = `
 <p id="batterylevel">x%</p>
 <h2>Screen is locked</h2>
@@ -5,60 +9,41 @@ const lockedscreen = `
 `
 const unlocked = `<h2 id="unlockedScreen">Screen is unlocked</h2>`;
 
+//SOFTKEYS
 const left = document.querySelector('#left')
 const middle = document.querySelector('#middle')
 const right = document.querySelector('#right')
-localStorage.passcode = JSON.stringify(['Enter'])
+
+//OTHER VARS
 let pressedKeys = []
-
 let timeout;
+let sosbutton = "SoftLeft"
+if(localStorage.sosbutton) sosbutton = localStorage.sosbutton
+document.querySelector('#sosButton').innerText = sosbutton;
+
 if (!localStorage.passcode) {
-    console.log('please input passcode')
-}
-let locked = 1;
-if (locked) lockscreen();
-
-
-
-function checkPasscode(a, b) {
-    if (a === b) return true;
-    if (!a || !b) return false;
-    if (a.length !== b.length) return false;
-
-    for (var i = 0; i < a.length; ++i) {
-        if (a[i] !== b[i]) {
-            alert('nope'), pressedKeys = []
-            return false
-
-        };
-    }
-    return true;
+    content.innerHTML = `<h3 id="firstuse">Welcome to Phone locker</h3>
+    <p>This app lets you lock your phone so nobody can get in, or anything happens by accident</p>
+    <p>You will be able to unlock your phone with a chosen key combination</p>
+    <p id="keycombi" class="primary">Please enter your key combination</p>`
+} else {
+    content.innerHTML = unlocked;
+    updateSoftkeys('', 'LOCK', 'Settings')
 }
 
-function updateSoftkeys(a, b, c) {
-    a ? left.innerText = a : left.innerText = ''
-    b ? middle.innerText = b : middle.innerText = ''
-    c ? right.innerText = c : right.innerText = ''
-}
 
-function lockscreen() {
-    pressedKeys = [];
-    document.querySelector('#content').innerHTML = lockedscreen;
-    updateSoftkeys('SOS');
-    navigator.getBattery().then((battery) => {
-        document.querySelector('#batterylevel').innerText = battery.level * 100 + '%'
-        battery.addEventListener("levelchange", () => {
-            document.querySelector('#batterylevel').innerText = battery.level * 100 + '%'
-        })
-    })
-}
 
 getKaiAd({
-	publisher: 'fe2d9134-74be-48d8-83b9-96f6d803efef',
-	app: 'phonelocker',
-	onerror: err => console.error('error getting ad: ', err),
-	onready: ad => {
-		ad.call('display')
-	}
+    publisher: 'fe2d9134-74be-48d8-83b9-96f6d803efef',
+    app: 'phonelocker',
+    test: 1,
+    onerror: err => console.error('error getting ad: ', err),
+    onready: ad => {
+        ad.call('display')
+    }
 })
-	
+
+
+
+
+wakelock = navigator.requestWakeLock('screen');

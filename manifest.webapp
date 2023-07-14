@@ -1,8 +1,8 @@
 {
-  "version": "0.0.1.1",
+  "version": "0.0.4",
   "name": "phonelocker",
   "description": "lock your phone",
-  "type": "web",
+  "type": "privileged",
   "launch_path": "/index.html",
   "icons": {
     "56": "/icon.png",
@@ -19,5 +19,6 @@
       "description": "lock your phone so nobdy can get in or anything happens by accident."
     }
   },
-  "default_locale": "en-US"
+  "default_locale": "en-US",
+  "fullscreen": "true"
 }

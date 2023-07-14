@@ -6,14 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="functions.js" defer></script>
     <script src="script.js" defer></script>
     <script src="keydown.js" defer></script>
+    <script src="locked.js" defer></script>
+    <script src="unlocked.js" defer></script>
+    <script src="settings.js" defer></script>
     <script src="kaiads.v5.min.js"></script>
 </head>
 
 <body>
     <div id="content">
-        
+        <h3 id="firstuse">Welcome to Phone locker</h3>
+        <p>This app lets you lock your phone so nobody can get in, or anything happens by accident</p>
+        <p>You will be able to unlock your phone with a chosen key combination</p>
+        <p id="keycombi" class="primary">Please enter your key combination</p>
     </div>
     <div id="settings" class="list hidden">
         <h2 class="title">Settings</h2>
@@ -30,7 +37,7 @@
         </div>
     </div>
     <footer>
-        <div id="left"></div>
+        <div id="left">Save</div>
         <div id="middle"></div>
         <div id="right"></div>
     </footer>
