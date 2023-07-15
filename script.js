@@ -18,7 +18,7 @@ const right = document.querySelector('#right')
 let pressedKeys = []
 let timeout;
 let sosbutton = "SoftLeft"
-if(localStorage.sosbutton) sosbutton = localStorage.sosbutton
+if (localStorage.sosbutton) sosbutton = localStorage.sosbutton
 document.querySelector('#sosButton').innerText = sosbutton;
 
 if (!localStorage.passcode) {
@@ -33,17 +33,23 @@ if (!localStorage.passcode) {
 
 
 
-getKaiAd({
-    publisher: 'fe2d9134-74be-48d8-83b9-96f6d803efef',
-    app: 'phonelocker',
-    test: 1,
-    onerror: err => console.error('error getting ad: ', err),
-    onready: ad => {
-        ad.call('display')
-    }
-})
-
-
-
+// getKaiAd({
+//     publisher: 'fe2d9134-74be-48d8-83b9-96f6d803efef',
+//     app: 'phonelocker',
+//     test: 1,
+//     onerror: err => console.error('error getting ad: ', err),
+//     onready: ad => {
+//         ad.call('display')
+//     }
+// })
 
 wakelock = navigator.requestWakeLock('screen');
+
+let lockscreenenabled = navigator.mozSettings.createLock().get('lockscreen.enabled')
+
+lockscreenenabled.onsuccess = function () {
+
+    console.log(this.result)
+};
+
+navigator.mozSettings.createLock().set({ 'lockscreen.enabled': false });

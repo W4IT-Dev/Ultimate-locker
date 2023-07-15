@@ -2,7 +2,7 @@ document.addEventListener('keydown', e => {
 
     if (document.querySelector('#batterylevel')) { //LOCKED SCREEN
         if (navigator.vibrate) {
-            navigator.vibrate(50);
+            navigator.vibrate(80);
         }
         if (e.key == sosbutton) return call();
         pressedKeys.push(e.key)
