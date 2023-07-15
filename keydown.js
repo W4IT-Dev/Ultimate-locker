@@ -13,7 +13,7 @@ document.addEventListener('keydown', e => {
         document.querySelector('#keycombi').innerHTML = ""
 
         for (let i = 0; i < passcode.length; i++) {
-            document.querySelector('#keycombi').innerHTML += ', ' + passcode[i];
+            document.querySelector('#keycombi').innerHTML += passcode[i] + ' ';
 
         }
     }

@@ -3,6 +3,10 @@ document.addEventListener('keydown', e => {
         if (e.key == "Enter" && document.querySelector('#settings').classList.contains('hidden')) {
             lockscreen();
         }
-        if (e.key == "3" || e.key == 'SoftRight') document.querySelector('#settings').classList.toggle('hidden'), document.querySelector('.nav').focus();
+        if (e.key == "3" || e.key == 'SoftRight') {
+            document.querySelector('#settings').classList.toggle('hidden');
+            document.querySelector('.nav').focus();
+            document.querySelector('#settings').classList.contains('hidden') ? updateSoftkeys('', 'LOCK', 'Settings') : updateSoftkeys('', 'SELECT', 'Close')
+        }
     }
 })

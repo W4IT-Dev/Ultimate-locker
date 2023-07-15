@@ -23,10 +23,18 @@ function updateSoftkeys(a, b, c) {
 }
 
 function lockscreen() {
+    screenTimeout = setTimeout(()=>{
+        setTimeout(()=>{
+            document.body.style.filter = "brightness(0)"
+
+        }, 500)
+        document.body.style.filter = "brightness(.5)"
+    }, 10000)
     document.body.classList.add('locked')
     content.innerHTML = lockedscreen;
     pressedKeys = [];
     updateSoftkeys('SOS');
+    if (!navigator.battery) return
     navigator.getBattery().then((battery) => {
         document.querySelector('#batterylevel').innerText = battery.level * 100 + '%'
         battery.addEventListener("levelchange", () => {
@@ -52,13 +60,10 @@ function nav(move) {
     targetElement.focus();
 }
 
-function changeCode(){
+function changeCode() {
 
 }
 
-function changesosbutton(){
-}
-
-function allowednumbers(){
+function allowednumbers() {
 
 }

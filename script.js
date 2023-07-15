@@ -16,10 +16,7 @@ const right = document.querySelector('#right')
 
 //OTHER VARS
 let pressedKeys = []
-let timeout;
-let sosbutton = "SoftLeft"
-if (localStorage.sosbutton) sosbutton = localStorage.sosbutton
-document.querySelector('#sosButton').innerText = sosbutton;
+let timeout, screenTimeout;
 
 if (!localStorage.passcode) {
     content.innerHTML = `<h3 id="firstuse">Welcome to Phone locker</h3>
@@ -50,6 +47,8 @@ let lockscreenenabled = navigator.mozSettings.createLock().get('lockscreen.enabl
 lockscreenenabled.onsuccess = function () {
 
     console.log(this.result)
+    alert(this.result)
 };
+
 
 navigator.mozSettings.createLock().set({ 'lockscreen.enabled': false });
