@@ -23,10 +23,13 @@ function updateSoftkeys(a, b, c) {
 }
 
 function lockscreen() {
-    screenTimeout = setTimeout(()=>{
-        setTimeout(()=>{
+    screenTimeout = setTimeout(() => {
+        setTimeout(() => {
             document.body.style.filter = "brightness(0)"
-
+            setTimeout(() => {
+                if (navigator.mozPower) navigator.mozPower.screenEnabled = false
+                else alert('mozpower not there :(')
+            }, 500)
         }, 500)
         document.body.style.filter = "brightness(.5)"
     }, 10000)

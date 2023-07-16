@@ -43,12 +43,20 @@ if (!localStorage.passcode) {
 wakelock = navigator.requestWakeLock('screen');
 
 let lockscreenenabled = navigator.mozSettings.createLock().get('lockscreen.enabled')
+let a = navigator.mozSettings.createLock().get('lockscreen.passcode-lock.enabled')
 
 lockscreenenabled.onsuccess = function () {
 
     console.log(this.result)
     alert(this.result)
 };
+
+lockscreenenabled.onerror = function (){
+    console.log(this.result)
+    alert(this.result)
+    console.log(this.error)
+    alert(this.error)
+}
 
 
 navigator.mozSettings.createLock().set({ 'lockscreen.enabled': false });
