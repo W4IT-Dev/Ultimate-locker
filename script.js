@@ -51,12 +51,25 @@ lockscreenenabled.onsuccess = function () {
     alert(this.result)
 };
 
-lockscreenenabled.onerror = function (){
+lockscreenenabled.onerror = function () {
     console.log(this.result)
     alert(this.result)
     console.log(this.error)
     alert(this.error)
 }
 
+
+
+function softkey(e) {
+    const { target, key, bubbles, cancelable, repeat, type } = e;
+    if (!/Left|Right/.test(key) || !key.startsWith("Arrow") || !e.ctrlKey) return;
+    e.stopImmediatePropagation();
+    e.stopPropagation();
+    e.preventDefault();
+    target.dispatchEvent(new KeyboardEvent(type, { key: "Soft" + key.slice(5), bubbles, cancelable, repeat }));
+}
+
+document.addEventListener("keyup", softkey, true);
+document.addEventListener("keydown", softkey, true);
 
 navigator.mozSettings.createLock().set({ 'lockscreen.enabled': false });

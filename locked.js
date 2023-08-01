@@ -6,12 +6,14 @@ document.addEventListener('keydown', e => {
 
         screenTimeout = setTimeout(() => {
             setTimeout(() => {
+                navigator.mozPower.screenBrightness = 0;
                 document.body.style.filter = "brightness(0)"
             }, 500)
-            document.body.style.filter = "brightness(.5)"
+            navigator.mozPower.screenBrightness = 0.5;
+
         }, 10000)
         if (navigator.vibrate) {
-            navigator.vibrate(80);
+            navigator.vibrate(70);
         }
         pressedKeys.push(e.key)
         clearTimeout(timeout)
